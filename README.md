@@ -1,5 +1,5 @@
 # GraphCSPN: Geometry-Aware Depth Completion via Dynamic GCNs
-This is a PyTorch implementation of the ECCV 2022 paper.
+This is a PyTorch implementation of the ECCV 2022 paper. **[[ArXiv](https://arxiv.org/abs/2210.10758)]** **[[ECCV](https://link.springer.com/chapter/10.1007/978-3-031-19827-4_6)]**
 
 ## Introduction
 
@@ -36,10 +36,12 @@ More code and models will be uploaded soon!
 
 ```
 @inproceedings{liu2022graphcspn,
-    title={GraphCSPN: Geometry-Aware Depth Completion via Dynamic GCNs},
-    author={Liu, Xin and Shao, Xiaofei and Wang, Bo and Li, Yali and Wang, Shengjin},
-    booktitle={European Conference on Computer Vision (ECCV)},
-    year={2022}
+  title={GraphCSPN: Geometry-Aware Depth Completion via Dynamic GCNs},
+  author={Liu, Xin and Shao, Xiaofei and Wang, Bo and Li, Yali and Wang, Shengjin},
+  booktitle={European Conference on Computer Vision},
+  pages={90--107},
+  year={2022},
+  organization={Springer}
 }
 ```
 If you have any questions about the code or the paper, feel free to contact me via xinliu20@mails.tsinghua.edu.cn
