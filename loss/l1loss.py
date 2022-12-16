@@ -1,24 +1,17 @@
-"""
-    GraphCSPN: Geometry-Aware Depth Completion via Dynamic GCNs
-
-    European Conference on Computer Vision (ECCV) 2022
-"""
-
-
 import torch
 import torch.nn as nn
 
 
 class L1Loss(nn.Module):
-    def __init__(self, args):
+    def __init__(self, max_depth=10.0):
         super(L1Loss, self).__init__()
 
-        self.args = args
-        self.t_valid = 0.0001
+        self.max_depth = max_depth
+        self.t_valid = 0.00001
 
     def forward(self, pred, gt):
-        gt = torch.clamp(gt, min=0, max=self.args.max_depth)
-        pred = torch.clamp(pred, min=0, max=self.args.max_depth)
+        gt = torch.clamp(gt, min=0, max=self.max_depth)
+        pred = torch.clamp(pred, min=0, max=self.max_depth)
 
         mask = (gt > self.t_valid).type_as(pred).detach()
 
@@ -29,6 +22,6 @@ class L1Loss(nn.Module):
 
         loss = d / (num_valid + 1e-8)
 
-        loss = loss.sum()
+        loss = loss.mean()
 
         return loss
