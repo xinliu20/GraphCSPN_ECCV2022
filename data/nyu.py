@@ -15,6 +15,7 @@ import h5py
 
 from PIL import Image
 import torch
+from torch.utils.data import Dataset
 import torchvision.transforms as T
 import torchvision.transforms.functional as TF
 
@@ -98,8 +99,8 @@ class NYU(BaseDataset):
         rgb = Image.fromarray(rgb_h5, mode='RGB')
         dep = Image.fromarray(dep_h5.astype('float32'), mode='F')
 
-        if self.augment and self.mode == 'train':
-            _scale = 1
+        if self.mode == 'train':
+            _scale = np.random.uniform(1.0, 1.5)
             scale = np.int(self.height * _scale)
             degree = np.random.uniform(-5.0, 5.0)
             flip = np.random.uniform(0.0, 1.0)
